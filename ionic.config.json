@@ -1,0 +1,7 @@
+{
+  "name": "AC02-Tabs",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

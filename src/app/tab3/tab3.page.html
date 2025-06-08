@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Planejador Financeiro Pessoal
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,52 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Simulação de Despesas Mensais</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <div id="despesa">
+    <ion-item-divider>
+      <ion-label>
+        <ion-title size="large">Simulação de Investimento</ion-title>
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+  <ion-label position="floating">Digite a sua despesa mensal com <strong>Moradia</strong></ion-label>
+  <ion-input type="number" [(ngModel)]="despesas[0]"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Digite a sua despesa mensal com <strong>Alimentação</strong></ion-label>
+  <ion-input type="number" [(ngModel)]="despesas[1]"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Digite a sua despesa mensal com <strong>Transporte</strong></ion-label>
+  <ion-input type="number" [(ngModel)]="despesas[2]"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Digite a sua despesa mensal com <strong>Lazer</strong></ion-label>
+  <ion-input type="number" [(ngModel)]="despesas[3]"></ion-input>
+</ion-item>
+
+   <ion-item>
+      <ion-range labelPlacement="stacked" label="Selecione a sua renda líquida" [min]="0" [max]="20000"
+        aria-label="Range with pin" [pin]="true" [(ngModel)]="rendaMensal"
+        (ionChange)="selecionarRenda($event)"></ion-range>
+    </ion-item> 
+<ion-alert trigger="abrirAlertGastos" header="Aviso"
+      message="Suas despesas são maiores que sua renda líquida! Tome cuidado e reduza seus gastos com {{reduzirGasto}}"
+      [buttons]="alertButtons"></ion-alert>
+<ion-button id="abrirAlertGastos"></ion-button>
+
+    <ion-toolbar>
+      <ion-label><span>Total despesas:</span> {{totalDespesas}}</ion-label>
+      <br>
+    </ion-toolbar>
+  </div>
+
+
 </ion-content>

@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Planejador Financeiro Pessoal
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,50 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Simulação de Investimento</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div id="emprestimo">
+    <ion-item-divider>
+      <ion-label>
+        <ion-title size="large">Simulação de Investimento</ion-title>
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-input type="number" label="Digite o valor valor inicial investido" labelPlacement="floating"
+        [(ngModel)]="valorInvestido"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="number" label="Digite o número de períodos de capitalização por ano" labelPlacement="floating"
+        [(ngModel)]="NumCapitalizao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="number" label="Digite o tempo (em anos)" labelPlacement="floating"
+        [(ngModel)]="NumTempo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-range labelPlacement="stacked" label="Selecione a porcentagem (em %) de Juros Anual" [min]="0" [max]="100"
+        aria-label="Range with pin" [pin]="true" [(ngModel)]="porcentagemJurosAnual"
+        (ionChange)="selecionarJuros($event)"></ion-range>
+    </ion-item>
+
+
+
+    <ion-alert [isOpen]="abirirAlert" header="Aviso" [message]="mensagem" [buttons]="alertButtons"
+      (didDismiss)="abirirAlert = false">
+    </ion-alert>
+
+
+    <ion-toolbar>
+      <ion-label><span>Valor final:</span> {{valorFinal}}</ion-label>
+      <br>
+    </ion-toolbar>
+  </div>
+
+
 </ion-content>

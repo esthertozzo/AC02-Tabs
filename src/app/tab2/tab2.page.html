@@ -36,7 +36,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-range labelPlacement="stacked" label="Selecione a porcentagem (em %) de Juros Anual" [min]="0" [max]="100"
+      <ion-range labelPlacement="stacked" label="Selecione a porcentagem (em %) da taxa retorno anual" [min]="0" [max]="100"
         aria-label="Range with pin" [pin]="true" [(ngModel)]="porcentagemJurosAnual"
         (ionChange)="selecionarJuros($event)"></ion-range>
     </ion-item>
@@ -48,10 +48,11 @@
     </ion-alert>
 
 
-    <ion-toolbar>
-      <ion-label><span>Valor final:</span> {{valorFinal}}</ion-label>
-      <br>
-    </ion-toolbar>
+    <ion-item>
+      <ion-toolbar>
+        <ion-label><span>Valor final:</span> {{valorFinal}}</ion-label>
+      </ion-toolbar>
+    </ion-item>
   </div>
 
 
